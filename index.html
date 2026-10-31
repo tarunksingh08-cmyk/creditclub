@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Instant Loan — Fast, Easy &amp; Hassle-Free Loans</title>
+<meta name="description" content="Apply for a personal or business loan online. Minimal documents, quick approval, 100% digital process.">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest-900:#0a3920;
+    --forest-800:#0e4a2a;
+    --forest-700:#115c35;
+    --gold-400:#f0c93a;
+    --gold-500:#e0b724;
+    --paper:#f8f6ef;
+    --ink:#122117;
+    --ink-soft:#4e5c52;
+    --white:#ffffff;
+    --line:rgba(10,57,32,0.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand{font-family:'Poppins',system-ui,sans-serif}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:14px 28px;border-radius:999px;font-weight:600;
+    text-decoration:none;font-size:15px;border:2px solid transparent;
+    transition:transform .15s ease;cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-gold{background:var(--gold-400);color:var(--forest-900)}
+  .btn-outline{border-color:var(--white);color:var(--white)}
+  .btn-outline-dark{border-color:var(--forest-900);color:var(--forest-900)}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--white);border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand img{height:38px;width:auto}
+  nav{display:flex;align-items:center;gap:32px}
+  nav a{text-decoration:none;color:var(--ink-soft);font-weight:500;font-size:15px}
+  nav a:hover{color:var(--forest-800)}
+  .nav-cta{background:var(--forest-900);color:var(--white);padding:10px 22px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none}
+  .nav-links,.nav-mobile-toggle{display:flex}
+  .nav-mobile-toggle{display:none;background:none;border:none;font-size:26px;color:var(--forest-900)}
+
+  /* Hero */
+  .hero{
+    background:var(--forest-900);
+    color:var(--white);
+    position:relative;
+    overflow:hidden;
+    padding:88px 0 96px;
+  }
+  .hero::before,.hero::after{
+    content:"";position:absolute;height:3px;background:linear-gradient(90deg,transparent,var(--gold-400) 60%,var(--gold-400));
+    width:38%;border-radius:2px;
+  }
+  .hero::before{top:22%;left:-6%}
+  .hero::after{top:30%;left:-10%;width:28%;opacity:.55}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;position:relative}
+  .hero h1{font-size:46px;line-height:1.12;font-weight:800;margin-bottom:20px;letter-spacing:-0.5px}
+  .hero h1 em{font-style:normal;color:var(--gold-400)}
+  .hero p.lead{font-size:17px;color:#d7e6da;max-width:46ch;margin-bottom:32px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+  .hero-points{display:flex;gap:28px;flex-wrap:wrap;padding-top:24px;border-top:1px solid rgba(255,255,255,0.15)}
+  .hero-points div{font-size:14px;color:#cfe3d5;display:flex;align-items:center;gap:8px}
+  .hero-points svg{flex-shrink:0}
+  .hero-art{position:relative}
+  .hero-art img{border-radius:18px;box-shadow:0 30px 60px -20px rgba(0,0,0,0.45)}
+
+  /* Trust strip */
+  .trust{background:var(--white);border-bottom:1px solid var(--line)}
+  .trust .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;padding:26px 24px}
+  .trust-item{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14.5px;color:var(--forest-800)}
+
+  section{padding:88px 0}
+  .section-head{max-width:560px;margin-bottom:48px}
+  .kicker{color:var(--forest-700);font-weight:600;font-size:14px;margin-bottom:10px}
+  .section-head h2{font-size:32px;font-weight:700;line-height:1.2;color:var(--forest-900)}
+  .section-head p{color:var(--ink-soft);margin-top:12px;font-size:15.5px}
+
+  /* Features */
+  .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .feature{background:var(--white);padding:36px}
+  .feature .icon{
+    width:46px;height:46px;border-radius:12px;background:var(--forest-900);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  }
+  .feature h3{font-size:18px;margin-bottom:8px;color:var(--forest-900)}
+  .feature p{font-size:14.5px;color:var(--ink-soft)}
+
+  /* How it works */
+  .how{background:var(--forest-900);color:var(--white)}
+  .how .section-head h2,.how .kicker{color:var(--white)}
+  .how .section-head p{color:#cfe3d5}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:step}
+  .step{position:relative;padding:28px 24px 0 0;border-top:2px solid rgba(255,255,255,0.25)}
+  .step::before{
+    counter-increment:step;content:counter(step);
+    position:absolute;top:-19px;left:0;
+    width:36px;height:36px;border-radius:50%;background:var(--gold-400);color:var(--forest-900);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;
+  }
+  .step h3{font-size:16.5px;margin:14px 0 8px}
+  .step p{font-size:14px;color:#cfe3d5}
+
+  /* Loan types */
+  .loan-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .loan-card{border:1px solid var(--line);border-radius:16px;padding:36px;background:var(--white)}
+  .loan-card h3{font-size:22px;color:var(--forest-900);margin-bottom:10px}
+  .loan-card p{color:var(--ink-soft);font-size:14.5px;margin-bottom:20px}
+  .loan-card ul{list-style:none;margin-bottom:26px}
+  .loan-card li{font-size:14.5px;padding:8px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--ink)}
+  .loan-card li span:first-child{color:var(--ink-soft)}
+  .loan-card li:first-child{border-top:none}
+
+  /* Apply form */
+  .apply{background:var(--white);border-top:1px solid var(--line)}
+  .apply-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .apply form{display:grid;gap:16px;background:var(--paper);padding:32px;border-radius:16px;border:1px solid var(--line)}
+  .apply form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  label{font-size:13.5px;font-weight:600;color:var(--forest-900);margin-bottom:6px;display:block}
+  input,select{
+    width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);
+    font-family:inherit;font-size:14.5px;background:var(--white);color:var(--ink);
+  }
+  input:focus,select:focus{outline:2px solid var(--forest-700);outline-offset:1px}
+  .apply form button{margin-top:6px;border:none;cursor:pointer;width:100%}
+  .apply-note{font-size:12.5px;color:var(--ink-soft);margin-top:10px}
+  .contact-links{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+  .contact-links a{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--forest-900);font-weight:600;font-size:15px}
+  .contact-links .ic{width:40px;height:40px;border-radius:10px;background:var(--forest-900);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+  footer{background:var(--forest-900);color:#cfe3d5;padding:56px 0 28px;font-size:13.5px}
+  footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;margin-bottom:36px}
+  footer .brand img{height:30px}
+  footer p.about{margin-top:14px;max-width:42ch;color:#aac4b1}
+  footer h4{color:var(--white);font-size:14px;margin-bottom:14px}
+  footer ul{list-style:none;display:grid;gap:10px}
+  footer a{text-decoration:none;color:#cfe3d5}
+  footer a:hover{color:var(--gold-400)}
+  .disclaimer{border-top:1px solid rgba(255,255,255,0.15);padding-top:24px;color:#9fb8a7;line-height:1.6}
+  .disclaimer strong{color:#cfe3d5}
+  .bottom-bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:22px;color:#9fb8a7}
+
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr}
+    .hero-art{order:-1}
+    .hero h1{font-size:34px}
+    .feature-grid,.loan-grid,.steps{grid-template-columns:1fr}
+    .step{border-top:none;border-left:2px solid rgba(255,255,255,0.25);padding:0 0 28px 24px}
+    .step::before{top:0;left:-18px}
+    .apply-grid{grid-template-columns:1fr}
+    .apply form .row{grid-template-columns:1fr}
+    nav .nav-links{display:none}
+    .nav-mobile-toggle{display:block}
+    footer .wrap{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#" class="brand"><img src="assets/logo.png" alt="Instant Loan"></a>
+    <nav>
+      <div class="nav-links" style="display:flex;gap:32px;align-items:center">
+        <a href="#how">How it works</a>
+        <a href="#loans">Loan types</a>
+        <a href="#apply">Eligibility</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#apply" class="nav-cta">Apply now</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Loans that move <em>as fast as you do.</em></h1>
+      <p class="lead">Apply once online, get matched with our lending partners, and complete everything digitally — no branch visits, no paperwork pile-up.</p>
+      <div class="hero-ctas">
+        <a href="#apply" class="btn btn-gold">Apply now</a>
+        <a href="#how" class="btn btn-outline">See how it works</a>
+      </div>
+      <div class="hero-points">
+        <div><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#f0c93a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Minimal documents</div>
+        <div><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#f0c93a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> 100% digital process</div>
+        <div><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#f0c93a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Personal &amp; business loans</div>
+      </div>
+    </div>
+    <div class="hero-art"><img src="assets/banner.jpg" alt="Apply for a loan on your phone"></div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="#115c35" stroke-width="1.8"/></svg> Safe &amp; secure</div>
+    <div class="trust-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="#115c35" stroke-width="1.8" stroke-linejoin="round"/></svg> Fast approval</div>
+    <div class="trust-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="9" r="3" stroke="#115c35" stroke-width="1.8"/><circle cx="17" cy="9" r="3" stroke="#115c35" stroke-width="1.8"/><path d="M3 19c0-2.8 2.2-5 5-5s5 2.2 5 5M12 19c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#115c35" stroke-width="1.8"/></svg> Trusted partner network</div>
+    <div class="trust-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#115c35" stroke-width="1.8"/><path d="M3 9h18" stroke="#115c35" stroke-width="1.8"/></svg> Transparent terms</div>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Why apply with us</div>
+      <h2>Everything built around getting you funded faster</h2>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13H7V3z" stroke="#f0c93a" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v5h5" stroke="#f0c93a" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <h3>Minimal documents</h3>
+        <p>Just your ID, address and income proof — upload photos straight from your phone.</p>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#f0c93a" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="#f0c93a" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Quick approval</h3>
+        <p>Our partner lenders review applications fast, so you're not left waiting on a decision.</p>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="12" rx="2" stroke="#f0c93a" stroke-width="1.8"/><path d="M3 11h18" stroke="#f0c93a" stroke-width="1.8"/></svg></div>
+        <h3>100% digital process</h3>
+        <p>From application to e-sign, do it all online — no branch visits required.</p>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21V9l9-6 9 6v12" stroke="#f0c93a" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 21v-7h6v7" stroke="#f0c93a" stroke-width="1.8"/></svg></div>
+        <h3>Personal &amp; business loans</h3>
+        <p>Whether it's a personal need or growing your business, we route you to the right option.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">The process</div>
+      <h2>Four steps from application to funds</h2>
+      <p>No hidden stages — here's exactly what happens after you apply.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Apply online</h3><p>Fill the short form with your basic and loan details — takes under 3 minutes.</p></div>
+      <div class="step"><h3>Get matched</h3><p>We match your profile with suitable lending partners from our network.</p></div>
+      <div class="step"><h3>Verify digitally</h3><p>Upload documents and complete e-KYC from your phone or laptop.</p></div>
+      <div class="step"><h3>Receive funds</h3><p>Once approved by the lender, funds are disbursed to your bank account.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="loans">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Loan types</div>
+      <h2>Choose the loan that fits your need</h2>
+    </div>
+    <div class="loan-grid">
+      <div class="loan-card">
+        <h3>Personal loan</h3>
+        <p>For weddings, medical needs, travel, or any personal expense — unsecured and flexible.</p>
+        <ul>
+          <li><span>Loan amount</span><span>₹ [add range]</span></li>
+          <li><span>Tenure</span><span>[add range]</span></li>
+          <li><span>Documents</span><span>ID, address, income proof</span></li>
+        </ul>
+        <a href="#apply" class="btn btn-outline-dark" style="border:2px solid var(--forest-900);width:100%">Apply for personal loan</a>
+      </div>
+      <div class="loan-card">
+        <h3>Business loan</h3>
+        <p>Working capital, inventory, or expansion funding for small and growing businesses.</p>
+        <ul>
+          <li><span>Loan amount</span><span>₹ [add range]</span></li>
+          <li><span>Tenure</span><span>[add range]</span></li>
+          <li><span>Documents</span><span>Business proof, bank statements</span></li>
+        </ul>
+        <a href="#apply" class="btn btn-outline-dark" style="border:2px solid var(--forest-900);width:100%">Apply for business loan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="apply" id="apply">
+  <div class="wrap">
+    <div class="apply-grid">
+      <div>
+        <div class="kicker">Get started</div>
+        <h2 style="font-size:30px;font-weight:700;color:var(--forest-900);line-height:1.2">Apply in under 3 minutes</h2>
+        <p style="color:var(--ink-soft);margin-top:12px;font-size:15px;max-width:40ch">Share a few details and our team will reach out to guide you through the next steps. You can also reach us directly:</p>
+        <div class="contact-links">
+          <a href="tel:+91XXXXXXXXXX"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 2h3l2 5-2.5 1.5a11 11 0 005 5L15 11l5 2v3a2 2 0 01-2 2A16 16 0 014 6a2 2 0 012-2z" stroke="#f0c93a" stroke-width="1.6" stroke-linejoin="round"/></svg></span> +91 XXXXX XXXXX</a>
+          <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 10-15.3 5.1L4 21l4.6-1.2a8.5 8.5 0 0012.4-8.3z" stroke="#f0c93a" stroke-width="1.6" stroke-linejoin="round"/></svg></span> Chat on WhatsApp</a>
+          <a href="mailto:hello@creditclub.site"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#f0c93a" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="#f0c93a" stroke-width="1.6"/></svg></span> hello@creditclub.site</a>
+        </div>
+      </div>
+      <form id="loanForm">
+        <div class="row">
+          <div><label for="name">Full name</label><input id="name" name="name" required placeholder="Your name"></div>
+          <div><label for="phone">Mobile number</label><input id="phone" name="phone" required placeholder="10-digit number" pattern="[0-9]{10}"></div>
+        </div>
+        <div class="row">
+          <div><label for="loanType">Loan type</label>
+            <select id="loanType" name="loanType">
+              <option>Personal loan</option>
+              <option>Business loan</option>
+            </select>
+          </div>
+          <div><label for="amount">Amount needed</label><input id="amount" name="amount" placeholder="e.g. ₹1,00,000"></div>
+        </div>
+        <div><label for="city">City</label><input id="city" name="city" required placeholder="Your city"></div>
+        <button type="submit" class="btn btn-gold">Submit application</button>
+        <p class="apply-note">By submitting, you agree to be contacted about your application. This form currently opens your email app — connect it to your CRM or a form service before going live.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <div class="brand"><img src="assets/logo.png" alt="Instant Loan"></div>
+      <p class="about">creditclub.site helps you find and apply for personal and business loans through our network of lending partners — quickly, digitally, and transparently.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#loans">Loan types</a></li>
+        <li><a href="#apply">Apply now</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">Privacy policy</a></li>
+        <li><a href="#">Terms &amp; conditions</a></li>
+        <li><a href="#">Grievance redressal</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> Instant Loan (creditclub.site) is a loan facilitation platform and is not a direct lender. We connect applicants with our network of lending partners; all loan approvals, interest rates and terms are at the sole discretion of the respective lender. Submitting an application does not guarantee loan approval. Please read all lender terms carefully before proceeding.
+    </div>
+    <div class="bottom-bar">
+      <span>© <span id="year"></span> Instant Loan · creditclub.site</span>
+      <span>Registered office address — [add address]</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('loanForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const f = new FormData(this);
+    const subject = encodeURIComponent('New loan application - ' + f.get('name'));
+    const body = encodeURIComponent(
+      'Name: ' + f.get('name') +
+      '\nPhone: ' + f.get('phone') +
+      '\nLoan type: ' + f.get('loanType') +
+      '\nAmount needed: ' + f.get('amount') +
+      '\nCity: ' + f.get('city')
+    );
+    window.location.href = 'mailto:hello@creditclub.site?subject=' + subject + '&body=' + body;
+  });
+</script>
+
+</body>
+</html>
